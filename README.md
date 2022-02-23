@@ -20,9 +20,8 @@ API for City Explorer app
 01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
 
 ## Credit and Collaborations
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
 
-## Time Estimates
+- Used this [stackoverflow thread](https://stackoverflow.com/questions/35864088/how-to-send-error-http-response-in-express-node-js) to create error response.
 
 ### Lab 02 time estimates
 
@@ -33,11 +32,11 @@ API for City Explorer app
     - Actual time needed to complete: -
 2. **Feature #2: Weather (placeholder)**
     - Estimate of time needed to complete: 30 minutes
-    - Start time: -
-    - Finish time: -
-    - Actual time needed to complete: -
-3. **Feature 3: Error (revisited)**
+    - Start time: 10:45 PM
+    - Finish time: 11:40 PM
+    - Actual time needed to complete: 55 minutes
+. **Feature 3: Error (revisited)**
     - Estimate of time needed to complete: 30 minutes
-    - Start time: -
-    - Finish time: -
-    - Actual time needed to complete: -
+    - Start time: 11:40 PM
+    - Finish time: 12:59 PM
+    - Actual time needed to complete: 45 minutes
