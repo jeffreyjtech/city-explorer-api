@@ -35,7 +35,7 @@ API for City Explorer app
     - Start time: 10:45 PM
     - Finish time: 11:40 PM
     - Actual time needed to complete: 55 minutes
-. **Feature 3: Error (revisited)**
+3. **Feature 3: Error (revisited)**
     - Estimate of time needed to complete: 30 minutes
     - Start time: 11:40 PM
     - Finish time: 12:59 PM
