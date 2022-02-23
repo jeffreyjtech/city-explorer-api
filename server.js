@@ -24,9 +24,12 @@ app.get('/weather', (request, response) => {
   let parsedWeatherData = {};
   if(foundWeather){
     parsedWeatherData = foundWeather.data.map(forecastData => new Forecast(forecastData));
+    response.send(parsedWeatherData);
+  } else {
+    response.status(500).send({
+      message: 'Weather data not found'
+    });
   }
-
-  response.send(parsedWeatherData);
 });
 
 app.get('*', (request, response) => {
