@@ -22,8 +22,6 @@ API for City Explorer app
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
 
-## Time Estimates
-
 ### Lab 02 time estimates
 
 1. **Feature #1: Setup**
@@ -33,9 +31,9 @@ API for City Explorer app
     - Actual time needed to complete: -
 2. **Feature #2: Weather (placeholder)**
     - Estimate of time needed to complete: 30 minutes
-    - Start time: -
-    - Finish time: -
-    - Actual time needed to complete: -
+    - Start time: 10:45 PM
+    - Finish time: 11:40 PM
+    - Actual time needed to complete: 55 minutes
 3. **Feature 3: Error (revisited)**
     - Estimate of time needed to complete: 30 minutes
     - Start time: -
