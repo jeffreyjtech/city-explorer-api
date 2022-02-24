@@ -23,7 +23,7 @@ API for City Explorer app
 
 - Used this [stackoverflow thread](https://stackoverflow.com/questions/35864088/how-to-send-error-http-response-in-express-node-js) to create error response.
 
-### Lab 02 time estimates
+### Lab 07 time estimates
 
 1. **Feature #1: Setup**
     - Estimate of time needed to complete: 20 minutes
@@ -40,3 +40,21 @@ API for City Explorer app
     - Start time: 11:40 PM
     - Finish time: 12:59 PM
     - Actual time needed to complete: 45 minutes
+
+### Lab 08 time estimates
+
+1. **Feature #1: Weather (live)**
+    - Estimate of time needed to complete:
+    - Start time:
+    - Finish time:
+    - Actual time needed to complete:
+2. **Feature #2: Movies**
+    - Estimate of time needed to complete:
+    - Start time:
+    - Finish time:
+    - Actual time needed to complete:
+3. **Feature #3: Publish**
+    - Estimate of time needed to complete:
+    - Start time:
+    - Finish time:
+    - Actual time needed to complete:
