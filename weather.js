@@ -1,6 +1,7 @@
 'use strict';
 
 const axios = require('axios');
+const res = require('express/lib/response'); // eslint-disable-line
 
 const errorResponse = require('./error.js');
 
