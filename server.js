@@ -17,8 +17,8 @@ const PORT = process.env.PORT || 3002;
 
 app.get('/weather', async (request, response) => {
   try {
-    let lat = request.query.lat || 0;
-    let lon = request.query.lon || 0;
+    let lat = request.query.lat;
+    let lon = request.query.lon;
 
     let url = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lon}&days=3&key=${process.env.WEATHER_API_KEY}`;
 
@@ -29,9 +29,7 @@ app.get('/weather', async (request, response) => {
     let parsedWeatherData = foundWeather.data.data.map(forecastData => new Forecast(forecastData));
     response.send(parsedWeatherData);
   } catch (error) {
-    error.status = 400;
-    error.message = 'Weather data not found';
-    throw error;
+    response.status(400).send('400: Invalid request');
   }
 });
 
@@ -40,15 +38,6 @@ app.get('/movies', async (request, response) => {
     let searchTerms = request.query.searchTerms;
     console.log('received movie query',searchTerms || 'falsy');
 
-    if(!request.query.searchTerms){
-      console.log('Error caught!');
-      let newError = new Error;
-      newError.status = 400;
-      newError.message = 'Bad query';
-      throw newError;
-    }
-    //  let movies = movieRequest(searchTerms);
-
     let url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&query=${searchTerms}&include_adult=false`;
 
     let movieAPIData = await axios.get(url);
@@ -56,30 +45,10 @@ app.get('/movies', async (request, response) => {
     let movies = movieAPIData.data.results.map(result => new Movie(result));
     response.send(movies);
   } catch (error) {
-    // error.status = 500;
-    // error.message = 'Movie data not found';
-    // throw error;
+    response.status(400).send('400: Invalid request');
   }
 });
 
-/*
-This was a part of my attempt to get a validation scheme set up
-The idea is that the GET request would throw an error if the query was invalid
-Only problem is that async causes any manually thrown errors to crash the server
-I WISH I KNEW WHY
-So I tried to enclose the async...await part in this helper function
-That didn't work because the code in the try...catch block above would keep running even after invoking this, which totally breaks the GET request/response
-
-async function movieRequest(searchTerms) {
-  let url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&query=${searchTerms}&include_adult=false`;
-
-  let movieAPIData = await axios.get(url);
-
-  let movies = movieAPIData.data.results.map(result => new Movie(result));
-  console.log(movies.data);
-  return movies;
-}
-*/
 
 app.get('*', (request, response) => { // eslint-disable-line
   let newError = new Error;
@@ -106,11 +75,6 @@ class Movie {
     this.release_date = data.release_date;
   }
 }
-
-// Error response using .status()
-// response.status(400).send({
-//   message: 'This is an error!'
-// });
 
 app.use((error, request, response, next) => { // eslint-disable-line
   response.status(error.status).send(`${error.status}: ${error.message}`);
