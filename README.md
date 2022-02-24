@@ -3,10 +3,11 @@
 API for City Explorer app
 
 **Author**: Jeffrey Jenkins
-**Version**: 1.0.0
+**Version**: 1.1.0
 
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
+
+This application shows data on location which the user has searched for, including a rendered map of the location, a weather forecast, and movies which are are related to the location.
 
 ## Getting Started
 <!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
@@ -23,13 +24,13 @@ API for City Explorer app
 
 - Used this [stackoverflow thread](https://stackoverflow.com/questions/35864088/how-to-send-error-http-response-in-express-node-js) to create error response.
 
-### Lab 02 time estimates
+### Lab 07 time estimates
 
 1. **Feature #1: Setup**
     - Estimate of time needed to complete: 20 minutes
     - Start time: 10:30 PM
     - Finish time: 10:45 PM
-    - Actual time needed to complete: -
+    - Actual time needed to complete: 15 minutes
 2. **Feature #2: Weather (placeholder)**
     - Estimate of time needed to complete: 30 minutes
     - Start time: 10:45 PM
@@ -40,3 +41,21 @@ API for City Explorer app
     - Start time: 11:40 PM
     - Finish time: 12:59 PM
     - Actual time needed to complete: 45 minutes
+
+### Lab 08 time estimates
+
+1. **Feature #1: Weather (live)**
+    - Estimate of time needed to complete: 60 minutes
+    - Start time: 6:00 PM
+    - Finish time: 8:25 PM
+    - Actual time needed to complete: 100 minutes
+2. **Feature #2: Movies**
+    - Estimate of time needed to complete: 30 minutes
+    - Start time: 8:30 PM
+    - Finish time: 11:19 PM
+    - Actual time needed to complete: 154 minutes
+3. **Feature #3: Publish**
+    - Estimate of time needed to complete: 30 minutes
+    - Start time: 11:23 PM
+    - Finish time: 
+    - Actual time needed to complete:
