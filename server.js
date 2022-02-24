@@ -15,6 +15,12 @@ const PORT = process.env.PORT || 3002;
 
 // const weatherData = require('./data/weather.json');
 
+function errorResponse(error, request, response) {
+  error.status = error.status || 400;
+  error.message = `Error on route ${request.route.path}: ${error.message}`;
+  response.status(error.status).send(`${error.message}`);
+}
+
 app.get('/weather', async (request, response) => {
   try {
     let lat = request.query.lat;
@@ -29,7 +35,7 @@ app.get('/weather', async (request, response) => {
     let parsedWeatherData = foundWeather.data.data.map(forecastData => new Forecast(forecastData));
     response.send(parsedWeatherData);
   } catch (error) {
-    response.status(400).send(`${error.name}: ${error.message}`);
+    errorResponse(error, request, response);
   }
 });
 
@@ -44,7 +50,7 @@ app.get('/movies', async (request, response) => {
     let movies = movieAPIData.data.results.map(result => new Movie(result));
     response.send(movies);
   } catch (error) {
-    response.status(400).send(`${error.name}: ${error.message}`);
+    errorResponse(error, request, response);
   }
 });
 
