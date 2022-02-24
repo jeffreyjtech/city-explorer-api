@@ -3,7 +3,7 @@
 API for City Explorer app
 
 **Author**: Jeffrey Jenkins
-**Version**: 1.2.0
+**Version**: 1.2.1
 
 ## Overview
 
