@@ -44,10 +44,10 @@ API for City Explorer app
 ### Lab 08 time estimates
 
 1. **Feature #1: Weather (live)**
-    - Estimate of time needed to complete:
-    - Start time:
-    - Finish time:
-    - Actual time needed to complete:
+    - Estimate of time needed to complete: 60 minutes
+    - Start time: 6:00 PM
+    - Finish time: 8:25 PM
+    - Actual time needed to complete: 100 minutes
 2. **Feature #2: Movies**
     - Estimate of time needed to complete:
     - Start time:
