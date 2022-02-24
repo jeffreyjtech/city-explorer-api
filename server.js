@@ -37,13 +37,9 @@ app.get('/weather', async (request, response) => {
 
 app.get('/movies', async (request, response) => {
   try {
-    let searchTerms = request.query.searchTerms || 'undefined';
+    let searchTerms = request.query.searchTerms;
+    console.log('received movie query',searchTerms || 'falsy');
 
-    // Example URIs
-    // https://api.themoviedb.org/3/movie/550?api_key=b5477be6980b760051bcda4412659a7b
-    // https://api.themoviedb.org/3/search/movie?api_key=<<api_key>>&query=sussy&include_adult=false
-    /* Unsuccessful attempt at creating an error condition if query is invalid
-     More info around line 71.
     if(!request.query.searchTerms){
       console.log('Error caught!');
       let newError = new Error;
@@ -51,8 +47,7 @@ app.get('/movies', async (request, response) => {
       newError.message = 'Bad query';
       throw newError;
     }
-    let movies = movieRequest(searchTerms);
-    */
+    //  let movies = movieRequest(searchTerms);
 
     let url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&query=${searchTerms}&include_adult=false`;
 
@@ -61,9 +56,9 @@ app.get('/movies', async (request, response) => {
     let movies = movieAPIData.data.results.map(result => new Movie(result));
     response.send(movies);
   } catch (error) {
-    error.status = 400;
-    error.message = 'Movie data not found';
-    throw error;
+    // error.status = 500;
+    // error.message = 'Movie data not found';
+    // throw error;
   }
 });
 
