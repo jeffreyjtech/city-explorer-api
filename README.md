@@ -52,10 +52,10 @@ This application shows data on location which the user has searched for, includi
 2. **Feature #2: Movies**
     - Estimate of time needed to complete: 30 minutes
     - Start time: 8:30 PM
-    - Finish time:
-    - Actual time needed to complete:
+    - Finish time: 11:19 PM
+    - Actual time needed to complete: 154 minutes
 3. **Feature #3: Publish**
     - Estimate of time needed to complete:
-    - Start time:
+    - Start time: 
     - Finish time:
     - Actual time needed to complete:
