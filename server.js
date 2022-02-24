@@ -29,14 +29,13 @@ app.get('/weather', async (request, response) => {
     let parsedWeatherData = foundWeather.data.data.map(forecastData => new Forecast(forecastData));
     response.send(parsedWeatherData);
   } catch (error) {
-    response.status(400).send('400: Invalid request');
+    response.status(400).send(`${error.name}: ${error.message}`);
   }
 });
 
 app.get('/movies', async (request, response) => {
   try {
     let searchTerms = request.query.searchTerms;
-    console.log('received movie query',searchTerms || 'falsy');
 
     let url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&query=${searchTerms}&include_adult=false`;
 
@@ -45,7 +44,7 @@ app.get('/movies', async (request, response) => {
     let movies = movieAPIData.data.results.map(result => new Movie(result));
     response.send(movies);
   } catch (error) {
-    response.status(400).send('400: Invalid request');
+    response.status(400).send(`${error.name}: ${error.message}`);
   }
 });
 
