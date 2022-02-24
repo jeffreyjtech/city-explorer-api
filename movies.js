@@ -2,11 +2,7 @@
 
 const axios = require('axios');
 
-function errorResponse(error, request, response) {
-  error.status = error.status || 400;
-  error.message = `Error on request with route ${request.route.path || 'unknown'}: ${error.message}`;
-  response.status(error.status).send(`${error.message}`);
-}
+const errorResponse = require('./error.js');
 
 async function getMovies(request, response) {
   try {
