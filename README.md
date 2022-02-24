@@ -59,3 +59,11 @@ This application shows data on location which the user has searched for, includi
     - Start time: 11:23 PM
     - Finish time: 11:50 PM
     - Actual time needed to complete: 27 minutes
+
+### Lab 09 time estimates
+
+1. **Feature #1: Modularize Back-end**
+    - Estimate of time needed to complete: 60 minutes
+    - Start time: 10:54 AM
+    - Finish time: 12:06 PM
+    - Actual time needed to complete: 68 minutes
