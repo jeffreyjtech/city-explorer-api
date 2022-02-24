@@ -4,6 +4,7 @@ const { request, response } = require('express'); // eslint-disable-line
 const express = require('express');
 const cors = require('cors');
 const req = require('express/lib/request'); // eslint-disable-line
+const axios = require('axios');
 
 const app = express();
 
@@ -12,20 +13,24 @@ app.use(cors());
 require('dotenv').config();
 const PORT = process.env.PORT || 3002;
 
-const weatherData = require('./data/weather.json');
+// const weatherData = require('./data/weather.json');
 
-app.get('/weather', (request, response) => {
-  // let lat = request.query.lat;
-  // let lon = request.query.lon;
-  let searchQuery = request.query.searchQuery;
-  console.log('I was pinged!');
+app.get('/weather', async (request, response) => {
 
-  let foundWeather = weatherData.find(city => city.city_name === searchQuery);
   try {
-    let parsedWeatherData = foundWeather.data.map(forecastData => new Forecast(forecastData));
+    let lat = request.query.lat || 0;
+    let lon = request.query.lon || 0;
+
+    let url = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lon}&days=3&key=${process.env.WEATHER_API_KEY}`;
+
+    let foundWeather = await axios.get(url);
+
+    // This creates an array with shape [Forecast,Forecast,Forecast]
+    // Forecasts has shape {date: String, description: String}
+    let parsedWeatherData = foundWeather.data.data.map(forecastData => new Forecast(forecastData));
     response.send(parsedWeatherData);
   } catch (error) {
-    error.status = 500;
+    error.status = 400;
     error.message = 'Weather data not found';
     throw error;
   }
