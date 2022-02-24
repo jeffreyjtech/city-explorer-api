@@ -25,11 +25,9 @@ class Movie {
     this.overview = data.overview;
     this.vote_average = data.vote_average;
     this.vote_count = data.vote_count;
-    console.log(typeof data.poster_path,data.poster_path);
     this.image_url = data.poster_path ?
       `https://image.tmdb.org/t/p/w500${data.poster_path}` :
       'no-poster';
-    console.log('Movie obj img url',this.image_url);
     this.popularity = data.popularity;
     this.release_date = data.release_date;
   }
