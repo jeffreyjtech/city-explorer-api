@@ -37,18 +37,28 @@ app.get('/weather', async (request, response) => {
 
 app.get('/movies', async (request, response) => {
   try {
-    let searchTerms = request.query.searchTerms;
+    let searchTerms = request.query.searchTerms || 'undefined';
 
     // Example URIs
     // https://api.themoviedb.org/3/movie/550?api_key=b5477be6980b760051bcda4412659a7b
     // https://api.themoviedb.org/3/search/movie?api_key=<<api_key>>&query=sussy&include_adult=false
+    /* Unsuccessful attempt at creating an error condition if query is invalid
+     More info around line 71.
+    if(!request.query.searchTerms){
+      console.log('Error caught!');
+      let newError = new Error;
+      newError.status = 400;
+      newError.message = 'Bad query';
+      throw newError;
+    }
+    let movies = movieRequest(searchTerms);
+    */
 
     let url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&query=${searchTerms}&include_adult=false`;
 
     let movieAPIData = await axios.get(url);
 
     let movies = movieAPIData.data.results.map(result => new Movie(result));
-
     response.send(movies);
   } catch (error) {
     error.status = 400;
@@ -56,6 +66,25 @@ app.get('/movies', async (request, response) => {
     throw error;
   }
 });
+
+/*
+This was a part of my attempt to get a validation scheme set up
+The idea is that the GET request would throw an error if the query was invalid
+Only problem is that async causes any manually thrown errors to crash the server
+I WISH I KNEW WHY
+So I tried to enclose the async...await part in this helper function
+That didn't work because the code in the try...catch block above would keep running even after invoking this, which totally breaks the GET request/response
+
+async function movieRequest(searchTerms) {
+  let url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&query=${searchTerms}&include_adult=false`;
+
+  let movieAPIData = await axios.get(url);
+
+  let movies = movieAPIData.data.results.map(result => new Movie(result));
+  console.log(movies.data);
+  return movies;
+}
+*/
 
 app.get('*', (request, response) => { // eslint-disable-line
   let newError = new Error;
