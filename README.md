@@ -6,7 +6,8 @@ API for City Explorer app
 **Version**: 1.1.0
 
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
+
+This application shows data on location which the user has searched for, including a rendered map of the location, a weather forecast, and movies which are are related to the location.
 
 ## Getting Started
 <!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
@@ -29,7 +30,7 @@ API for City Explorer app
     - Estimate of time needed to complete: 20 minutes
     - Start time: 10:30 PM
     - Finish time: 10:45 PM
-    - Actual time needed to complete: -
+    - Actual time needed to complete: 15 minutes
 2. **Feature #2: Weather (placeholder)**
     - Estimate of time needed to complete: 30 minutes
     - Start time: 10:45 PM
