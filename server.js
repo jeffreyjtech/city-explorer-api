@@ -16,7 +16,6 @@ const PORT = process.env.PORT || 3002;
 // const weatherData = require('./data/weather.json');
 
 app.get('/weather', async (request, response) => {
-
   try {
     let lat = request.query.lat || 0;
     let lon = request.query.lon || 0;
@@ -36,6 +35,28 @@ app.get('/weather', async (request, response) => {
   }
 });
 
+app.get('/movies', async (request, response) => {
+  try {
+    let searchTerms = request.query.searchTerms;
+
+    // Example URIs
+    // https://api.themoviedb.org/3/movie/550?api_key=b5477be6980b760051bcda4412659a7b
+    // https://api.themoviedb.org/3/search/movie?api_key=<<api_key>>&query=sussy&include_adult=false
+
+    let url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&query=${searchTerms}&include_adult=false`;
+
+    let movieAPIData = await axios.get(url);
+
+    let movies = movieAPIData.data.results.map(result => new Movie(result));
+
+    response.send(movies);
+  } catch (error) {
+    error.status = 400;
+    error.message = 'Movie data not found';
+    throw error;
+  }
+});
+
 app.get('*', (request, response) => { // eslint-disable-line
   let newError = new Error;
   newError.status = 404;
@@ -47,6 +68,30 @@ class Forecast {
   constructor(data){
     this.date = data.datetime;
     this.description = `Low of ${data.low_temp}, high of ${data.high_temp} with ${data.weather.description.toLowerCase()}.`;
+  }
+}
+
+/* Example from Trello
+{
+    "title": "Sleepless in Seattle",
+    "overview": "A young boy who tries to set his dad up on a date after the death of his mother. He calls into a radio station to talk about his dad’s loneliness which soon leads the dad into meeting a Journalist Annie who flies to Seattle to write a story about the boy and his dad. Yet Annie ends up with more than just a story in this popular romantic comedy.",
+    "average_votes": "6.60",
+    "total_votes": "881",
+    "image_url": "https://image.tmdb.org/t/p/w500/afkYP15OeUOD0tFEmj6VvejuOcz.jpg",
+    "popularity": "8.2340",
+    "released_on": "1993-06-24"
+  },
+*/
+
+class Movie {
+  constructor(data){
+    this.title = data.title;
+    this.overview = data.overview;
+    this.vote_average = data.vote_average;
+    this.vote_count = data.vote_count;
+    this.image_url = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
+    this.popularity = data.popularity;
+    this.release_date = data.release_date;
   }
 }
 
