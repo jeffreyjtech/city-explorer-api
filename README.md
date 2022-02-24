@@ -55,7 +55,7 @@ This application shows data on location which the user has searched for, includi
     - Finish time: 11:19 PM
     - Actual time needed to complete: 154 minutes
 3. **Feature #3: Publish**
-    - Estimate of time needed to complete:
-    - Start time: 
-    - Finish time:
+    - Estimate of time needed to complete: 30 minutes
+    - Start time: 11:23 PM
+    - Finish time: 
     - Actual time needed to complete:
