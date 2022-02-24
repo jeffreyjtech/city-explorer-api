@@ -50,8 +50,8 @@ This application shows data on location which the user has searched for, includi
     - Finish time: 8:25 PM
     - Actual time needed to complete: 100 minutes
 2. **Feature #2: Movies**
-    - Estimate of time needed to complete:
-    - Start time:
+    - Estimate of time needed to complete: 30 minutes
+    - Start time: 8:30 PM
     - Finish time:
     - Actual time needed to complete:
 3. **Feature #3: Publish**
