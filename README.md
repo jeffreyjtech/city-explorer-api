@@ -3,7 +3,7 @@
 API for City Explorer app
 
 **Author**: Jeffrey Jenkins
-**Version**: 1.2.1
+**Version**: 1.3.0
 
 ## Overview
 
@@ -23,6 +23,8 @@ This application shows data on location which the user has searched for, includi
 ## Credit and Collaborations
 
 - Used this [stackoverflow thread](https://stackoverflow.com/questions/35864088/how-to-send-error-http-response-in-express-node-js) to create error response.
+
+### Time Estimates
 
 ### Lab 07 time estimates
 
@@ -67,3 +69,11 @@ This application shows data on location which the user has searched for, includi
     - Start time: 10:54 AM
     - Finish time: 12:06 PM
     - Actual time needed to complete: 68 minutes
+
+### Lab 10 time estimates
+
+1. **Feature #1: Performance**
+    - Estimate of time needed to complete: 90 minutes
+    - Start time: 2:40 PM
+    - Finish time: 3:50 PM
+    - Actual time needed to complete: 70 minutes
