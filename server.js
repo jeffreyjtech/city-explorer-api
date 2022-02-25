@@ -1,34 +1,22 @@
 'use strict';
 
-const { request, response } = require('express'); // eslint-disable-line
+require('dotenv');
 const express = require('express');
 const cors = require('cors');
-const req = require('express/lib/request'); // eslint-disable-line
 
+const weather = require('./modules/weather.js');
 const app = express();
 
-const getWeather = require('./weather.js');
-const getMovies = require('./movies.js');
+app.get('/weather', weatherHandler);
 
-app.use(cors());
+function weatherHandler(request, response) {
+  const { lat, lon } = request.query;
+  weather(lat, lon)
+  .then(summaries => response.send(summaries))
+  .catch((error) => {
+    console.error(error);
+    response.status(200).send('Sorry. Something went wrong!')
+  });
+}  
 
-require('dotenv').config();
-const PORT = process.env.PORT || 3002;
-
-
-app.get('/weather', getWeather);
-
-app.get('/movies', getMovies);
-
-app.get('*', (request, response) => { // eslint-disable-line
-  let newError = new Error;
-  newError.status = 404;
-  newError.message = 'Resource not found';
-  throw newError;
-});
-
-app.use((error, request, response, next) => { // eslint-disable-line
-  response.status(error.status).send(`${error.status}: ${error.message}`);
-});
-
-app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+app.listen(process.env.PORT, () => console.log(`Server up on ${process.env.PORT}`));
