@@ -24,6 +24,34 @@ This application shows data on location which the user has searched for, includi
 
 - Used this [stackoverflow thread](https://stackoverflow.com/questions/35864088/how-to-send-error-http-response-in-express-node-js) to create error response.
 
+## Web Request Diagrams
+
+### Lab 06: Co-authored with Matt Rangel
+
+![LocationIQ Request Diagram](assets/CityExplorer-diagram.png)
+
+### Lab 07: Co-authored with Dan Brian
+
+![Weather API Request Diagram](assets/CityExplorerLab07Diagram.png)
+
+### Lab 08: An iteration on the Lab 07 diagram, co-authored with Nicholas Mercado
+
+The Lab 07 diagram was used with Dan Brain's permission.
+
+![Weather API Request Diagram with Weather and Movies](assets/Lab08Diagram.png)
+
+### Lab 09: An iteration on the Lab 08 diagram, co-authored with Brady Camp
+
+Server JS's functions have been broken up into modules.
+
+![Weather API Request Diagram with Modules](assets/Lab09Diagram.png)
+
+### Lab 10: An iteration on the Lab 09 diagram, co-authored with Liesl White
+
+![Weather API Request Diagram with Modules and Cache](assets/Lab10Diagram.drawio.png)
+
+## Test estimates
+
 ### Time Estimates
 
 ### Lab 07 time estimates
